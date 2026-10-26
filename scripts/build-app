@@ -1,0 +1,65 @@
+#!/bin/bash
+set -euo pipefail
+
+# TokenPeek Swift Package -> macOS .app bundle
+# Place this file at: scripts/build-app
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+BUILD_DIR="$ROOT_DIR/.build/release"
+APP_DIR="$ROOT_DIR/dist/TokenPeek.app"
+ICON_SOURCE="$ROOT_DIR/Resources/TokenPeek.icns"
+PLIST_SOURCE="$ROOT_DIR/Resources/Info.plist"
+PLIST_DEST="$APP_DIR/Contents/Info.plist"
+ICON_DEST="$APP_DIR/Contents/Resources/TokenPeek.icns"
+
+fail() { printf 'ERROR: %s\n' "$1" >&2; exit 1; }
+
+printf '\n[1/6] Checking input files...\n'
+[[ -f "$ICON_SOURCE" ]] || fail "Icon not found: $ICON_SOURCE"
+[[ -f "$PLIST_SOURCE" ]] || fail "Info.plist not found: $PLIST_SOURCE"
+/usr/bin/plutil -lint "$PLIST_SOURCE" >/dev/null || fail "Invalid source Info.plist"
+printf 'Icon source: %s\n' "$ICON_SOURCE"
+/usr/bin/file "$ICON_SOURCE"
+
+printf '\n[2/6] Building Swift Package in Release configuration...\n'
+cd "$ROOT_DIR"
+mkdir -p "$ROOT_DIR/.build/swiftpm-cache" "$ROOT_DIR/.build/clang-cache"
+CLANG_MODULE_CACHE_PATH="$ROOT_DIR/.build/clang-cache" \
+SWIFTPM_MODULECACHE_OVERRIDE="$ROOT_DIR/.build/clang-cache" \
+swift build -c release --disable-sandbox --cache-path "$ROOT_DIR/.build/swiftpm-cache"
+[[ -f "$BUILD_DIR/TokenPeek" ]] || fail "Executable not found: $BUILD_DIR/TokenPeek"
+
+printf '\n[3/6] Updating application bundle...\n'
+mkdir -p "$APP_DIR/Contents/MacOS" "$APP_DIR/Contents/Resources"
+cp -f "$BUILD_DIR/TokenPeek" "$APP_DIR/Contents/MacOS/TokenPeek"
+cp -f "$PLIST_SOURCE" "$PLIST_DEST"
+cp -f "$ICON_SOURCE" "$ICON_DEST"
+
+printf '\n[4/6] Setting icon in Info.plist...\n'
+# SwiftPM's manually built .app does not compile an AppIcon asset catalog.
+# Remove the generated bundle's asset-catalog icon name if it exists,
+# allowing macOS to use the standalone .icns instead.
+/usr/libexec/PlistBuddy -c 'Delete :CFBundleIconName' "$PLIST_DEST" >/dev/null 2>&1 || true
+if /usr/libexec/PlistBuddy -c 'Print :CFBundleIconFile' "$PLIST_DEST" >/dev/null 2>&1; then
+    /usr/libexec/PlistBuddy -c 'Set :CFBundleIconFile TokenPeek.icns' "$PLIST_DEST"
+else
+    /usr/libexec/PlistBuddy -c 'Add :CFBundleIconFile string TokenPeek.icns' "$PLIST_DEST"
+fi
+/usr/bin/plutil -lint "$PLIST_DEST" || fail 'Generated Info.plist is invalid'
+
+printf '\n[5/6] Re-signing the modified app bundle...\n'
+/usr/bin/codesign --force --deep --sign - "$APP_DIR"
+/usr/bin/codesign --verify --verbose=2 "$APP_DIR" || fail 'Code-sign validation failed'
+
+printf '\n[6/6] Verifying packaged icon...\n'
+[[ -s "$ICON_DEST" ]] || fail "Icon was not packaged: $ICON_DEST"
+[[ -f "$APP_DIR/Contents/MacOS/TokenPeek" ]] || fail 'Executable missing from .app'
+ICON_KEY="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIconFile' "$PLIST_DEST")"
+[[ "$ICON_KEY" == 'TokenPeek.icns' ]] || fail "Incorrect CFBundleIconFile: $ICON_KEY"
+
+printf '\nSUCCESS: The app bundle contains the icon and its Info.plist entry.\n'
+printf 'App: %s\n' "$APP_DIR"
+printf 'Icon: %s\n' "$ICON_DEST"
+printf 'CFBundleIconFile: %s\n' "$ICON_KEY"
+printf '\nNote: Xcode Run/Build alone does not run this script.\n'
+printf 'Open Finder at the built app with: open -R "%s"\n' "$APP_DIR"

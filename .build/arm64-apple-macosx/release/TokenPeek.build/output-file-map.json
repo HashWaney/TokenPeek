@@ -1,0 +1,49 @@
+{
+  "": {
+    "dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/TokenPeek.d",
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/TokenPeek.o",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/master.swiftdeps"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/AppModel.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/AppModel.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/AppModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/AppModel.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/AppModel.dia"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/CodexUsageService.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/CodexUsageService.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/CodexUsageService~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/CodexUsageService.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/CodexUsageService.dia"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/KeychainStore.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/KeychainStore.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/KeychainStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/KeychainStore.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/KeychainStore.dia"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/Models.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/Models.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/Models~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/Models.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/Models.dia"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PoeUsageService.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PoeUsageService.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PoeUsageService~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PoeUsageService.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PoeUsageService.dia"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PopoverView.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PopoverView.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PopoverView~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PopoverView.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/PopoverView.dia"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/TokenPeekApp.swift": {
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/TokenPeekApp.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/TokenPeekApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/TokenPeekApp.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/release/TokenPeek.build/TokenPeekApp.dia"
+  }
+}

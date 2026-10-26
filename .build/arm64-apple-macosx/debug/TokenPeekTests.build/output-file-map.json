@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/master.swiftdeps"
+  },
+  "/Users/wangqing/Desktop/Apple/TokenBar/Tests/TokenPeekTests/TokenPeekTests.swift": {
+    "dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.d",
+    "object": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.swift.o",
+    "swiftmodule": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.swiftdeps",
+    "diagnostics": "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.dia"
+  }
+}

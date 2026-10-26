@@ -1,0 +1,810 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.xctest/Contents/MacOS/TokenPeekPackageTests",
+      "packagePath" : "/Users/wangqing/Desktop/Apple/TokenBar",
+      "productName" : "TokenPeekPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.TokenPeek-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/sources",
+      "importPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/AppModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/CodexUsageService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/KeychainStore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/Models.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PoeUsageService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PopoverView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/TokenPeekApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "TokenPeek",
+      "moduleOutputPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeek.swiftmodule",
+      "objects" : [
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/AppModel.swift.o",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/CodexUsageService.swift.o",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/KeychainStore.swift.o",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/Models.swift.o",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PoeUsageService.swift.o",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PopoverView.swift.o",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/TokenPeekApp.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j11",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "TokenPeek_main",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "tokenbar",
+        "-disable-sandbox"
+      ],
+      "outputFileMapPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/AppModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/CodexUsageService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/KeychainStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PoeUsageService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PopoverView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/TokenPeekApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeek.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/AppModel.swift",
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/CodexUsageService.swift",
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/KeychainStore.swift",
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/Models.swift",
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PoeUsageService.swift",
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PopoverView.swift",
+        "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/TokenPeekApp.swift"
+      ],
+      "tempsPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.TokenPeekPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/sources",
+      "importPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeekTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "TokenPeekPackageTests",
+      "moduleOutputPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeekPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j11",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/include/TokenPeekPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "tokenbar",
+        "-disable-sandbox"
+      ],
+      "outputFileMapPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeekPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.TokenPeekTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/sources",
+      "importPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Tests/TokenPeekTests/TokenPeekTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "TokenPeekTests",
+      "moduleOutputPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeekTests.swiftmodule",
+      "objects" : [
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j11",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "tokenbar",
+        "-disable-sandbox"
+      ],
+      "outputFileMapPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules/TokenPeekTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/wangqing/Desktop/Apple/TokenBar/Tests/TokenPeekTests/TokenPeekTests.swift"
+      ],
+      "tempsPath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "TokenPeek" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "TokenPeek",
+      "-package-name",
+      "tokenbar",
+      "-c",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/AppModel.swift",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/CodexUsageService.swift",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/KeychainStore.swift",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/Models.swift",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PoeUsageService.swift",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PopoverView.swift",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/TokenPeekApp.swift",
+      "-I",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j11",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "TokenPeek_main",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "tokenbar",
+      "-disable-sandbox",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "TokenPeekPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "TokenPeekPackageTests",
+      "-package-name",
+      "tokenbar",
+      "-c",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j11",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/include/TokenPeekPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "tokenbar",
+      "-disable-sandbox",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "TokenPeekTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "TokenPeekTests",
+      "-package-name",
+      "tokenbar",
+      "-c",
+      "/Users/wangqing/Desktop/Apple/TokenBar/Tests/TokenPeekTests/TokenPeekTests.swift",
+      "-I",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j11",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "tokenbar",
+      "-disable-sandbox",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "TokenPeek" : [
+
+    ],
+    "TokenPeekPackageTests" : [
+      "TokenPeekTests",
+      "TokenPeek"
+    ],
+    "TokenPeekTests" : [
+      "TokenPeek"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek-entitlement.plist"
+    },
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/AppModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/CodexUsageService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/KeychainStore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/Models.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PoeUsageService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/PopoverView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Sources/TokenPeek/TokenPeekApp.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/sources"
+    },
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/AppModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/CodexUsageService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/KeychainStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PoeUsageService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PopoverView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/TokenPeekApp.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.product/Objects.LinkFileList"
+    },
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/sources"
+    },
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/AppModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/CodexUsageService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/KeychainStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PoeUsageService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/PopoverView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeek.build/TokenPeekApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/TokenPeekTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/wangqing/Desktop/Apple/TokenBar/Tests/TokenPeekTests/TokenPeekTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/TokenPeekTests.build/sources"
+    },
+    "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/wangqing/Desktop/Apple/TokenBar/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

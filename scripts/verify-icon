@@ -1,0 +1,30 @@
+#!/bin/bash
+set -euo pipefail
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+APP="$ROOT_DIR/dist/TokenPeek.app"
+ICON="$APP/Contents/Resources/TokenPeek.icns"
+PLIST="$APP/Contents/Info.plist"
+if [[ ! -d "$APP" ]]; then
+  printf 'NOT FOUND: %s\nRun ./scripts/build-app first.\n' "$APP"
+  exit 1
+fi
+printf '\n=== .app path ===\n%s\n' "$APP"
+printf '\n=== Icon file ===\n'
+if [[ -f "$ICON" ]]; then
+  ls -lh "$ICON"
+  file "$ICON"
+else
+  echo 'MISSING: TokenPeek.icns'
+fi
+printf '\n=== Info.plist ===\n'
+if [[ -f "$PLIST" ]]; then
+  /usr/libexec/PlistBuddy -c 'Print :CFBundleIconFile' "$PLIST" || true
+  printf 'CFBundleIconName (should be absent): '
+  /usr/libexec/PlistBuddy -c 'Print :CFBundleIconName' "$PLIST" || true
+else
+  echo 'MISSING: Info.plist'
+fi
+printf '\n=== Signature ===\n'
+codesign --verify --verbose=2 "$APP" || true
+printf '\n=== Reveal in Finder ===\n'
+open -R "$APP"

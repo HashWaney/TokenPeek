@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>TokenPeek · V1.0-R1 交互原型</title>
+  <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      --ink:#19202d; --secondary:#7b8290; --muted:#a4aab5;
+      --surface:rgba(255,255,255,.965);--surface-2:#f6f7f9;--line:#e9ebee;
+      --accent:#187a67;--violet:#7053c2;--danger:#c54747;--warning:#b3732e;
+      --shadow:0 21px 70px rgba(17,23,47,.21), 0 4px 16px rgba(17,23,47,.10);
+    }
+    *{box-sizing:border-box} html,body{height:100%;margin:0} body{color:#fff;overflow:hidden;background:#374c72}
+    button,input{font:inherit} button{cursor:pointer} button:focus-visible,input:focus-visible{outline:3px solid #5e90ef;outline-offset:2px}
+    .desktop{position:fixed;inset:0;overflow:hidden;background: radial-gradient(ellipse 60% 45% at 72% 93%,#de8f86 0%,transparent 90%),radial-gradient(ellipse 56% 57% at 22% 94%,#916cc2 0%,transparent 83%),radial-gradient(ellipse 75% 63% at 47% 10%,#304362 0%,transparent 95%),linear-gradient(135deg,#21364d 0%,#65769d 65%,#bd9db0 100%)}
+    .desktop::before{content:"";position:absolute;left:-12%;right:-12%;bottom:-40%;height:79%;background:radial-gradient(ellipse at 43% 16%,rgba(250,225,212,.24),transparent 55%),linear-gradient(5deg,rgba(42,48,94,.55),transparent);border-radius:45%;filter:blur(30px);transform:rotate(-5deg);pointer-events:none}
+    .desktop::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 46% 40%,rgba(255,255,255,.06),transparent 35%);pointer-events:none}
+    .menubar{z-index:4;position:absolute;left:0;right:0;top:0;height:39px;display:flex;align-items:center;justify-content:space-between;padding:0 18px 0 22px; background:rgba(238,241,247,.80);border-bottom:1px solid rgba(255,255,255,.25);backdrop-filter:blur(28px) saturate(1.35);color:#263046;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+    .left-menu,.right-menu{display:flex;align-items:center;gap:22px;white-space:nowrap}.left-menu{gap:25px;font-size:12.5px}.left-menu strong{font-weight:650}.apple{font-size:20px;line-height:1}.right-menu{gap:11px;font-size:12px}
+    .menu-status{border:1px solid rgba(56,61,91,.07);background:rgba(255,255,255,.28);height:30px;border-radius:9px;display:flex;gap:11px;align-items:center;padding:0 10px;color:#253348;font-weight:630;font-size:12px;letter-spacing:.1px;transition:.18s}
+    .menu-status:hover,.menu-status.is-open{background:rgba(255,255,255,.68)} .menu-unit{display:flex;align-items:center;gap:5px}.menu-divider{height:14px;width:1px;background:rgba(70,79,104,.19)}
+    .codex-glyph,.poe-glyph{width:19px;height:19px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:750;font-size:11px;letter-spacing:-1px;flex-shrink:0}
+    .codex-glyph{background:#ecf5f1;color:#126b59}.poe-glyph{background:#f1edfb;color:#7857c4;font-size:13px}
+    .mock-dot{width:6px;height:6px;border-radius:50%;background:#e9b658;display:none}.status-offline .mock-dot{display:block}
+    .system-icons{display:flex;gap:9px;align-items:center;color:#35425a}.system-icons svg{display:block}
+    .sys-time{font-weight:600;min-width:99px;text-align:right}
+    .popover{z-index:5;position:absolute;right:116px;top:51px;width:352px;background:var(--surface);color:var(--ink);border:1px solid rgba(255,255,255,.78);border-radius:17px;box-shadow:var(--shadow);padding:0;transform-origin:top right;animation:popIn .19s ease-out}
+    .popover::before{content:"";position:absolute;right:62px;top:-7px;width:12px;height:12px;background:var(--surface);transform:rotate(45deg);border-top:1px solid rgba(255,255,255,.75);border-left:1px solid rgba(255,255,255,.75)}
+    @keyframes popIn{from{opacity:0;transform:translateY(-7px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .phead{position:relative;display:flex;align-items:center;justify-content:space-between;padding:17px 18px 13px;gap:10px}
+    .brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:-.4px;font-size:15px}
+    .brandmark{height:27px;width:27px;border-radius:9px;display:grid;place-items:center;background:#192333;color:white;font-size:18px;font-weight:600}
+    .head-actions{display:flex;gap:7px;align-items:center}
+    .icon-btn{height:29px;width:29px;display:grid;place-items:center;border:0;background:transparent;border-radius:8px;color:var(--secondary);padding:0}
+    .icon-btn:hover{background:var(--surface-2);color:var(--ink)}.icon-btn svg{height:16px;width:16px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .spin svg{animation:rot .65s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
+    .body{padding:0 13px 12px}.card{background:var(--surface-2);border:1px solid rgba(0,0,0,.025);padding:14px;border-radius:12px;margin-bottom:9px}
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.section-left{display:flex;align-items:center;gap:9px}.section-left .codex-glyph,.section-left .poe-glyph{width:29px;height:29px;border-radius:10px;font-size:15px}
+    .section-title{font-size:13.5px;font-weight:650;letter-spacing:-.15px}.section-caption{font-size:10px;margin-top:3px;color:var(--secondary)}
+    .pill{font-size:10px;color:#488e7a;background:#e8f3ee;padding:4px 8px;border-radius:99px;font-weight:600}.pill.warn{background:#fff0e4;color:#b1702f}.pill.danger{background:#ffebeb;color:#b44747}
+    .quota{margin:13px 0 0}.quota-first{margin-top:0}.quota-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+    .quota-label{font-size:11.5px;color:#4a5262;font-weight:550}.percent{font-size:14px;letter-spacing:-.4px;font-weight:700;font-variant-numeric:tabular-nums}.percent em{font-size:10.5px;font-style:normal;font-weight:450;color:var(--secondary);margin-left:3px}
+    .track{height:5px;background:#e4e8e9;border-radius:20px;overflow:hidden;margin-top:7px}.fill{height:100%;background:#328e74;border-radius:20px;transition:width .45s ease}
+    .fill.low{background:#da8c49}.fill.critical{background:#cd5c5e}
+    .quota-bottom{margin-top:6px;display:flex;justify-content:space-between;color:var(--secondary);font-size:10.5px;font-variant-numeric:tabular-nums;line-height:1.4}
+    .poe-layout{display:flex;align-items:center;justify-content:space-between}.balance{font-size:28px;letter-spacing:-1.1px;font-weight:750;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--ink)}.balance small{font-size:11px;font-weight:500;color:var(--secondary);letter-spacing:0;margin-left:3px}
+    .poe-note{font-size:10.5px;color:var(--secondary);margin-top:8px}.card-sep{height:1px;background:var(--line);margin:12px 0}
+    .empty-state{padding:6px 0 5px;font-size:11.5px;color:var(--secondary);line-height:1.65}.error-line{display:flex;gap:8px;align-items:flex-start}.error-line svg{color:var(--warning);flex-shrink:0;margin-top:1px}
+    .footer{padding:9px 17px 13px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:10.5px;color:var(--secondary)}.footer a{cursor:pointer;color:inherit;text-decoration:none}.footer a:hover{color:var(--ink)}
+    .setting-page{display:none}.setting-title{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:650}.formgroup{padding:12px 2px 6px}.formlabel{display:block;font-size:11.5px;font-weight:600;margin:0 0 9px}.fake-input{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--surface);color:var(--ink);font-size:12px;outline:none}.hint{color:var(--secondary);font-size:10.5px;line-height:1.6;margin:7px 0 0}.switch-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:13px 1px}.switch{border:none;width:38px;height:23px;border-radius:100px;background:#d2d5db;position:relative;transition:.2s}.switch::after{content:"";position:absolute;top:3px;left:3px;height:17px;width:17px;border-radius:50%;background:white;box-shadow:0 1px 3px #0002;transition:transform .2s}.switch.on{background:#37a487}.switch.on::after{transform:translateX(15px)}
+    .formdiv{height:1px;background:var(--line)}
+    .desktop-label{position:absolute;left:6.6%;top:18%;max-width:440px;z-index:2}.desktop-label .eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;color:#c5dce6}.desktop-label h1{font-size:clamp(38px,4.4vw,60px);font-weight:680;letter-spacing:-2.7px;line-height:1.12;margin:15px 0 18px;text-shadow:0 4px 18px #0002}.desktop-label p{line-height:1.8;color:rgba(255,255,255,.81);font-size:14px;max-width:375px;margin:0}.highlight{color:#e8ffed}.mock-controls{position:absolute;z-index:2;bottom:6%;left:6.6%;width:min(450px,86vw);background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.27);backdrop-filter:blur(18px);border-radius:18px;padding:17px 19px 18px;box-shadow:0 15px 25px #0001}.control-header{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:650}.control-caption{font-size:11px;color:rgba(255,255,255,.67);margin-top:7px}.choices{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.choice{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);color:#fff;border-radius:9px;padding:8px 11px;font-size:11.5px;transition:.16s}.choice.active,.choice:hover{background:#fff;color:#293651;border-color:#fff}.theme-choice{color:white;background:none;border:0;font-size:11px;opacity:.9}.theme-choice:hover{text-decoration:underline}.mini-foot{position:absolute;bottom:15px;right:22px;color:rgba(255,255,255,.66);font-size:10.5px;letter-spacing:.2px}
+    .toast{z-index:10;position:absolute;bottom:25px;left:50%;transform:translateX(-50%);background:#202937;padding:11px 17px;border-radius:8px;font-size:12px;box-shadow:0 9px 24px #0003;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
+    .dark{
+      --ink:#f1f3f6;--secondary:#9da7b6;--muted:#788395;--surface:rgba(37,42,51,.97);--surface-2:#303640;--line:#424954;--shadow:0 21px 70px rgba(0,0,0,.43),0 2px 15px rgba(0,0,0,.19)
+    }
+    .dark .card{border-color:rgba(255,255,255,.025)}.dark .quota-label{color:#d5d9df}.dark .track{background:#535961}.dark .pill{background:#204f42;color:#9be3c8}.dark .pill.warn{background:#63492b;color:#ffcd8d}.dark .pill.danger{background:#632f34;color:#ffc3c3}.dark .codex-glyph{background:#264c43;color:#9bdbc8}.dark .poe-glyph{background:#443359;color:#c9adff}
+    @media(max-width:900px){.left-menu .optional{display:none}.desktop-label{left:5%;top:15%;max-width:40%}.desktop-label h1{font-size:37px}.desktop-label p{font-size:12px}.mock-controls{left:5%;bottom:8%}.popover{right:18px}}
+    @media(max-width:675px){body{overflow:auto}.desktop{position:relative;min-height:870px}.menubar{padding:0 7px 0 12px}.left-menu{gap:8px}.left-menu .optional,.system-icons{display:none}.sys-time{min-width:auto;font-size:10px}.right-menu{gap:5px}.menu-status{padding:0 7px;gap:7px;font-size:10px}.menu-unit{gap:3px}.codex-glyph,.poe-glyph{height:17px;width:17px}.popover{right:50%;transform:translateX(50%);top:215px;width:min(352px,calc(100vw - 24px));animation:none}.popover::before{display:none}.desktop-label{top:66px;left:20px;max-width:90%}.desktop-label h1{font-size:30px;margin:6px 0 5px}.desktop-label p{font-size:11px}.mock-controls{left:50%;transform:translateX(-50%);bottom:36px;width:min(352px,calc(100vw - 24px))}.mini-foot{display:none}}
+  </style>
+</head>
+<body>
+<div class="desktop" id="desktop">
+  <header class="menubar">
+    <nav class="left-menu" aria-label="模拟 Mac 菜单栏左侧"><span class="apple" aria-hidden="true">●</span><strong>Finder</strong><span class="optional">文件</span><span class="optional">编辑</span><span class="optional">显示</span><span class="optional">前往</span><span class="optional">窗口</span><span class="optional">帮助</span></nav>
+    <div class="right-menu">
+      <button id="menuStatus" class="menu-status is-open" aria-expanded="true" aria-controls="popover" aria-label="打开 TokenPeek 详情">
+        <span class="menu-unit"><span class="codex-glyph">C</span><span id="menuCodex">100%</span></span><span class="menu-divider"></span>
+        <span class="menu-unit"><span class="poe-glyph">✳</span><span id="menuPoe">4,087</span></span><span class="mock-dot"></span>
+      </button>
+      <div class="system-icons" aria-hidden="true">
+        <svg width="16" height="15" viewBox="0 0 20 18"><path stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" d="M2 6a12 12 0 0 1 16 0M5 10a8 8 0 0 1 10 0M8 14a4 4 0 0 1 4 0"/></svg>
+        <svg width="20" height="12" viewBox="0 0 22 13"><rect x=".8" y=".8" width="18" height="11" rx="3" stroke="currentColor" fill="none"/><rect x="3" y="3" width="13" height="6" rx="1.2" fill="currentColor"/><rect x="20" y="4" width="2" height="5" rx="1" fill="currentColor"/></svg>
+      </div>
+      <span class="sys-time" aria-label="示意时间">10月26日 周一</span>
+    </div>
+  </header>
+
+  <div class="desktop-label">
+    <div class="eyebrow">MACOS MENU BAR · UI PREVIEW</div>
+    <h1>TokenPeek<span class="highlight">.</span></h1>
+    <p>不打开网页，一眼看到 AI 额度。<br/>一个菜单栏入口，两个数据源，尽可能少的操作。</p>
+  </div>
+
+  <main class="popover" id="popover" role="dialog" aria-label="TokenPeek 菜单栏弹窗">
+    <section id="overviewPage">
+      <div class="phead">
+        <div class="brand"><span class="brandmark">⌁</span><span>TokenPeek</span></div>
+        <div class="head-actions">
+          <button class="icon-btn" id="refreshBtn" title="刷新模拟数据" aria-label="刷新">
+            <svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.7 9A7.5 7.5 0 0 1 19.1 7M4.9 17a7.5 7.5 0 0 0 13.4-2"/></svg>
+          </button>
+          <button class="icon-btn" id="settingsBtn" title="设置" aria-label="打开设置">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M9 4v6M15 14v6"/><circle cx="9" cy="7" r="2" fill="var(--surface)"/><circle cx="15" cy="17" r="2" fill="var(--surface)"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="body">
+        <div class="card" id="codexCard">
+          <div class="section-head">
+            <div class="section-left"><span class="codex-glyph">C</span><span><div class="section-title">Codex</div><div class="section-caption">ChatGPT 订阅配额</div></span></div>
+            <span class="pill" id="codexStatus">已连接</span>
+          </div>
+          <div id="quotaRows">
+            <div class="quota quota-first">
+              <div class="quota-top"><span class="quota-label">5 小时额度</span><span class="percent" id="primaryPct">100% <em>剩余</em></span></div>
+              <div class="track"><div class="fill" id="primaryFill" style="width:100%"></div></div>
+              <div class="quota-bottom"><span>当前窗口</span><span id="primaryReset">10/26 19:46 重置</span></div>
+            </div>
+            <div class="quota">
+              <div class="quota-top"><span class="quota-label">7 天额度</span><span class="percent" id="secondaryPct">100% <em>剩余</em></span></div>
+              <div class="track"><div class="fill" id="secondaryFill" style="width:100%"></div></div>
+              <div class="quota-bottom"><span>每周窗口</span><span id="secondaryReset">11/02 14:46 重置</span></div>
+            </div>
+          </div>
+          <div class="empty-state" id="codexError" hidden></div>
+        </div>
+        <div class="card" id="poeCard">
+          <div class="section-head" style="margin-bottom:8px">
+            <div class="section-left"><span class="poe-glyph">✳</span><span><div class="section-title">Poe</div><div class="section-caption">官方积分余额</div></span></div>
+            <span class="pill" id="poeStatus">已连接</span>
+          </div>
+          <div class="poe-layout" id="poeBalanceRow">
+            <div class="balance" id="poeBalance">4,087 <small>积分</small></div>
+          </div>
+          <div class="poe-note" id="poeNote">余额已通过 API 读取；网页对账待确认</div>
+        </div>
+      </div>
+      <div class="footer"><span id="syncLabel">示例快照 · 2026-10-26（UTC+8）</span><a id="openSettingsFoot" tabindex="0" role="button">设置</a></div>
+    </section>
+    <section class="setting-page" id="settingPage">
+      <div class="phead">
+        <div class="setting-title"><button class="icon-btn" id="backBtn" aria-label="返回"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><span>设置</span></div>
+      </div>
+      <div class="body">
+        <div class="card" style="padding:10px 14px 13px">
+          <div class="formgroup"><label class="formlabel" for="poeKey">Poe API Key</label><input class="fake-input" id="poeKey" type="password" autocomplete="off" placeholder="原型请勿输入真实 Key"/><p class="hint">正式版将使用 macOS Keychain。本原型不会保存、发送或验证输入内容。</p></div>
+          <div class="formdiv"></div>
+          <div class="switch-row"><span>登录时启动</span><button id="startupSwitch" class="switch" type="button" aria-pressed="false" aria-label="登录时启动（仅预览）"></button></div>
+          <div class="formdiv"></div>
+          <div class="switch-row"><span>自动刷新</span><span style="color:var(--secondary);font-size:11.5px">每 5 分钟</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>预览模式 · 配置不会写入系统</span><span>V1.0-R1</span></div>
+    </section>
+  </main>
+
+  <aside class="mock-controls" aria-label="仅用于设计评估的交互控制">
+    <div class="control-header"><span>设计评估 · 切换数据状态</span><button class="theme-choice" id="themeBtn">切换深色面板</button></div>
+    <div class="control-caption">下方按钮只切换演示数据，不属于正式应用界面。</div>
+    <div class="choices">
+      <button class="choice active" data-state="normal">正常用量</button>
+      <button class="choice" data-state="low">额度不足</button>
+      <button class="choice" data-state="auth">登录失效</button>
+      <button class="choice" data-state="offline">网络中断</button>
+    </div>
+  </aside>
+  <div class="mini-foot">TOKENPEEK / V1.0-R1 · INTERACTIVE MOCKUP · NO LIVE API</div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const menus = $('menuStatus');
+  const popup = $('popover');
+  const stateButtons = [...document.querySelectorAll('[data-state]')];
+  let view='normal';let dark=false;let toastTimer;
+  function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2100)}
+  function setVisible(visible){popup.hidden=!visible;menus.classList.toggle('is-open',visible);menus.setAttribute('aria-expanded',String(visible));if(!visible)$('poeKey').value=''}
+  function showSettings(on){$('overviewPage').style.display=on?'none':'block';$('settingPage').style.display=on?'block':'none';if(on)$('poeKey').value=''}
+  function setPct(id,fillId,n){$(id).innerHTML = `${n}% <em>剩余</em>`;const fill=$(fillId);fill.style.width=n+'%';fill.classList.toggle('low',n<=30&&n>10);fill.classList.toggle('critical',n<=10)}
+  function badge(id,label,cls=''){$(id).textContent=label;$(id).className='pill'+(cls?' '+cls:'')}
+  function resetView(){ $('quotaRows').hidden=false;$('codexError').hidden=true;$('poeBalanceRow').hidden=false;$('poeNote').hidden=false; menus.classList.remove('status-offline');$('primaryReset').textContent='10/26 19:46 重置';$('secondaryReset').textContent='11/02 14:46 重置'; }
+  function applyState(next){view=next;stateButtons.forEach(b=>b.classList.toggle('active',b.dataset.state===next));resetView();showSettings(false);
+    if(next==='normal'){setPct('primaryPct','primaryFill',100);setPct('secondaryPct','secondaryFill',100);$('poeBalance').innerHTML='4,087 <small>积分</small>';$('poeNote').textContent='余额已通过 API 读取；网页对账待确认';$('menuCodex').textContent='100%';$('menuPoe').textContent='4,087';badge('codexStatus','已连接');badge('poeStatus','已连接');$('syncLabel').textContent='示例快照 · 2026-10-26（UTC+8）'}
+    if(next==='low'){setPct('primaryPct','primaryFill',9);setPct('secondaryPct','secondaryFill',42);$('poeBalance').innerHTML='860 <small>积分</small>';$('poeNote').textContent='模拟低余额，不包含阈值通知';$('primaryReset').textContent='2 小时后重置（模拟）';$('secondaryReset').textContent='3 天后重置（模拟）';$('menuCodex').textContent='9%';$('menuPoe').textContent='860';badge('codexStatus','额度偏低','danger');badge('poeStatus','已连接');$('syncLabel').textContent='模拟状态 · 非真实用量'}
+    if(next==='auth'){$('quotaRows').hidden=true;$('codexError').hidden=false;$('codexError').innerHTML='<span class="error-line">Codex 登录已失效，请先在终端重新登录。</span>';$('menuCodex').textContent='—';$('menuPoe').textContent='4,087';$('poeBalance').innerHTML='4,087 <small>积分</small>';$('poeNote').textContent='Poe 独立读取，不受 Codex 影响';badge('codexStatus','需重新登录','danger');badge('poeStatus','已连接');$('syncLabel').textContent='模拟状态 · 仅 Codex 授权失效'}
+    if(next==='offline'){setPct('primaryPct','primaryFill',100);setPct('secondaryPct','secondaryFill',100);$('poeBalance').innerHTML='4,087 <small>积分</small>';$('poeNote').textContent='上次成功值，仅供参考；当前无法同步';$('menuCodex').textContent='100%';$('menuPoe').textContent='4,087';badge('codexStatus','数据已过期','warn');badge('poeStatus','数据已过期','warn');$('syncLabel').textContent='离线 · 展示上次成功快照';menus.classList.add('status-offline')}
+  }
+  menus.addEventListener('click',e=>{setVisible(popup.hidden);if(!popup.hidden)showSettings(false)});
+  $('settingsBtn').addEventListener('click',()=>showSettings(true));$('openSettingsFoot').addEventListener('click',()=>showSettings(true));$('openSettingsFoot').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showSettings(true)}});
+  $('backBtn').addEventListener('click',()=>showSettings(false));
+  $('refreshBtn').addEventListener('click',()=>{const btn=$('refreshBtn');if(btn.disabled)return;btn.disabled=true;btn.classList.add('spin');setTimeout(()=>{btn.disabled=false;btn.classList.remove('spin');toast('原型演示：未发出网络请求')},650)});
+  $('startupSwitch').addEventListener('click',()=>{let t=$('startupSwitch');let next=!t.classList.contains('on');t.classList.toggle('on',next);t.setAttribute('aria-pressed',String(next));toast('仅切换显示，未修改系统设置')});
+  document.querySelectorAll('[data-state]').forEach(b=>b.addEventListener('click',()=>{applyState(b.dataset.state);setVisible(true)}));
+  $('themeBtn').addEventListener('click',()=>{dark=!dark;document.body.classList.toggle('dark',dark);$('themeBtn').textContent=dark?'切换浅色面板':'切换深色面板'});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!popup.hidden){if($('settingPage').style.display==='block')showSettings(false);else setVisible(false)}});
+  applyState('normal');setVisible(true);
+})();
+</script>
+</body>
+</html>
